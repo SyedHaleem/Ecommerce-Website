@@ -1,0 +1,19 @@
+.slick-prev, .slick-next {
+  z-index: 1;
+  color: black;  /* Change button color to black for visibility */
+  width: 30px;
+  height: 30px;
+}
+
+.slick-prev::before, .slick-next::before {
+  font-size: 40px;
+  color: slategrey;  /* Change button icon color to black */
+}
+
+.slick-prev {
+  left: -55px;  /* Adjust the position if needed */
+}
+
+.slick-next {
+  right: -50px;  /* Adjust the position if needed */
+}
