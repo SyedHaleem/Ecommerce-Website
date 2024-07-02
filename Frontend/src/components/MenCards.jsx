@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Shoplist } from '../store/store-list'; 
 import Card from './Card';
 
-function MenCards() {
+const MenCards = () => {
   const { menslist } = useContext(Shoplist);
 
   return (

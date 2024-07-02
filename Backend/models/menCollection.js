@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 // Define the schema to match the product data structure
-const MenProductSchema = new mongoose.Schema({
+const MenCollectionSchema = new mongoose.Schema({
   id: { type: Number, required: true, unique: true },
   image: { type: String, required: true },
   title: { type: String, required: true },
@@ -12,7 +12,7 @@ const MenProductSchema = new mongoose.Schema({
 });
 
 // Create a model using the schema
-const MenProductModel = mongoose.model("MedProduct", MenProductSchema);
+const MenCollectionModel = mongoose.model("MenCollection", MenCollectionSchema);
 
 // Export the model
-export default MenProductModel;
+export default MenCollectionModel;

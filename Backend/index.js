@@ -1,7 +1,9 @@
-import bodyParser from "body-parser";
-import cors from 'cors';
 import express from 'express';
-import mongoose from "mongoose";
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import menCollection from './routes/menCollection.js';
+import user from './routes/user.js'
 
 const app = express();
 const url = "mongodb+srv://syedhaleem:haleem110@syedhaleem.um7if0c.mongodb.net/?retryWrites=true&w=majority&appName=syedhaleem";
@@ -18,4 +20,5 @@ app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Add your routes here
+app.use('/api/products', menCollection);
+app.use('/api/auth', user);
