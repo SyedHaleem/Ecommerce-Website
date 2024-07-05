@@ -4,6 +4,7 @@ import Card from './Card';
 
 const MenCards = () => {
   const { menslist } = useContext(Shoplist);
+  // console.log(menslist);
 
   return (
     <div className='flex justify-center'>

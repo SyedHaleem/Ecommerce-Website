@@ -1,14 +1,11 @@
 import React, { createContext, useReducer, useEffect } from 'react';
-import menslistData from '../../public/menslist.json'; // Adjust paths as necessary
-import womenslistData from '../../public/womenslist.json';
-import kidslistData from '../../public/kidslist.json';
-import { fetchProducts, createProduct, updateProduct, deleteProduct } from '../service/api';
+import { fetchProducts } from '../service/api';
 
 // Initial state for the shoplist context
 const initialState = {
-  menslist: menslistData,
-  womenslist: womenslistData,
-  kidslist: kidslistData,
+  menslist: [],
+  womenslist: [],
+  kidslist: [],
   cart: []
 };
 
@@ -16,9 +13,7 @@ const initialState = {
 const shoplistReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
-      const itemExists = state.cart.some(
-        (item) => item.id === action.payload.id
-      );
+      const itemExists = state.cart.some((item) => item.id === action.payload.id);
       if (itemExists) {
         return state;
       }
@@ -59,10 +54,21 @@ export const ShopListProvider = ({ children }) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const mens = await fetchProducts();
-      const womens = await fetchProducts();
-      const kids = await fetchProducts();
-      dispatch({ type: 'FETCH_PRODUCTS', payload: { menslist: mens.data, womenslist: womens.data, kidslist: kids.data } });
+      try {
+        const mens = await fetchProducts('mens');
+        const womens = await fetchProducts('womens');
+        const kids = await fetchProducts('kids');
+        dispatch({
+          type: 'FETCH_PRODUCTS',
+          payload: {
+            menslist: mens,
+            womenslist: womens,
+            kidslist: kids
+          }
+        });
+      } catch (error) {
+        console.error("Error fetching products: ", error);
+      }
     };
     getProducts();
   }, [dispatch]);

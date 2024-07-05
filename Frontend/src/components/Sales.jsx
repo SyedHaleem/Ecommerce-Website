@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import l1 from "../../public/kidslist.json";
-import l2 from "../../public/menslist.json";
-import l3 from "../../public/womenslist.json";
+import React, { useEffect, useContext, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Card from './Card';
 import './Sales.css';  
 import logoImage from '../assets/file.png';  
+import { Shoplist } from '../store/store-list';
 
 function Sales() {
-  const list = [...l1, ...l2, ...l3];
-  const filterData = list.filter((data) => data.discountRate >= 0);
+  const {menslist,womenslist,kidslist}=useContext(Shoplist)
+  const list = [...menslist, ...womenslist, ...kidslist];
+  const filterData = list.filter((data) => data.discountRate > 0);
 
   const initialDays = 0;
   const initialHours = 6;

@@ -2,8 +2,7 @@
 
 import React, { useContext, useState } from 'react';
 import StarRatings from 'react-star-ratings';
-import { Shoplist } from '../store/store-list'; // Adjust the path as necessary
-
+import { Shoplist } from '../store/store-list'; 
 function Card({ product }) {
   const { dispatch } = useContext(Shoplist);
   const [isHovered, setIsHovered] = useState(false);
