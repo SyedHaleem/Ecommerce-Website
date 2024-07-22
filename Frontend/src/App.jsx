@@ -14,7 +14,7 @@ function App() {
       <ShopListProvider>
         <Routes>
           <Route path='/' element={<Homee/>} />
-          {/* <Route path='/cart' element={<CartPage />} />            */}
+          <Route path='/cart' element={<CartPage />} />           
           <Route path='/mens' element={<MenPage />} />
           <Route path='/womens' element={<WomenPage />} />
           <Route path='/kids' element={<KidPage />} />
