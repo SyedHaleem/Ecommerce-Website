@@ -14,32 +14,32 @@ export const fetchProducts = async (category) => {
   }
 };
 
-export const createProduct = async (newProduct) => {
-  try {
-    const response = await API.post('/products', newProduct);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
+// export const createProduct = async (newProduct) => {
+//   try {
+//     const response = await API.post('/products', newProduct);
+//     return response.data;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 
-export const updateProduct = async (id, updatedProduct) => {
-  try {
-    const response = await API.put(`/products/${id}`, updatedProduct);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
+// export const updateProduct = async (id, updatedProduct) => {
+//   try {
+//     const response = await API.put(`/products/${id}`, updatedProduct);
+//     return response.data;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 
-export const deleteProduct = async (id) => {
-  try {
-    const response = await API.delete(`/products/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
+// export const deleteProduct = async (id) => {
+//   try {
+//     const response = await API.delete(`/products/${id}`);
+//     return response.data;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 
 export const registerUser = async (formData) => {
   try {

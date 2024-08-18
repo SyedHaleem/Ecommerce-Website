@@ -7,7 +7,7 @@ const KidsCollectionSchema = new mongoose.Schema({
   description: { type: String, required: true },
   price: { type: Number, required: true },
   rating: { type: Number, required: true },
-  discountRate: { type: Number } // Not all products have a discount rate
+  discountRate: { type: Number } 
 });
 
 const KidsCollectionModel = mongoose.model("KidsCollection", KidsCollectionSchema);
